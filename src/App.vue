@@ -1,6 +1,6 @@
 <template>
-  <main>
-    <div class="overlay">
+  <main class="w-full h-full">
+    <div class="hidden">
       <div class="modal">
         <textarea
           name="note"
@@ -14,25 +14,28 @@
       </div>
     </div>
     <div class="container">
-      <header>
-        <h1>Notes</h1>
-        <button>+</button>
+      <header class="flex justify-between items-center">
+        <h1 class="font-bold text-6xl mb-8">Notes</h1>
+        <button
+          class="w-[50px] h-[50px] border-none rounded-full cursor-pointer bg-[#666666] text-[#ffffff] text-3xl leading-5 tracking-normal"
+        >
+          +
+        </button>
       </header>
 
-      <div class="card-container">
-        <div class="card">
-          <p class="card__text">
+      <div class="flex flex-wrap gap-5">
+        <div
+          class="w-[225px] h-[225px] bg-[rgb(237,182,44)] rounded-[15px] flex flex-col justify-between overflow-hidden text-xs"
+        >
+          <p class="flex-1 p-[10px] text-black">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
             nobis consequuntur quaerat praesentium blanditiis corrupti!
           </p>
-          <p class="card__date">02.03.2024</p>
-        </div>
-        <div class="card">
-          <p class="card__text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
-            nobis consequuntur quaerat praesentium blanditiis corrupti!
+          <p
+            class="py-[5px] px-[10px] bg-black text-[11px] font-light text-white"
+          >
+            02.03.2024
           </p>
-          <p class="card__date">02.03.2024</p>
         </div>
       </div>
     </div>
@@ -40,72 +43,10 @@
 </template>
 
 <style scoped>
-main {
-  height: 100vh;
-  width: 100vw;
-}
-
 .container {
   max-width: 1000px;
   padding: 10px;
   margin: 0 auto;
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-h1 {
-  font-size: 75px;
-  font-weight: bold;
-  margin-bottom: 25px;
-}
-
-header button {
-  width: 50px;
-  height: 50px;
-  border: none;
-  border-radius: 100%;
-  padding: 10px;
-  cursor: pointer;
-  background-color: #666666;
-  color: #ffffff;
-  font-size: 20px;
-}
-
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.card {
-  width: 225px;
-  height: 225px;
-  background-color: rgb(237, 182, 44);
-  border-radius: 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-right: 20px;
-  margin-bottom: 20px;
-  overflow: hidden;
-  font-size: 0.8rem;
-}
-
-.card__text {
-  flex-grow: 1;
-  padding: 10px;
-  color: #000000;
-}
-
-.card__date {
-  padding: 5px 10px 7px;
-  background-color: #000000;
-  font-size: 11px;
-  font-weight: 600;
-  color: #ffffff;
 }
 
 .overlay {
