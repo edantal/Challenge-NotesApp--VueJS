@@ -24,6 +24,10 @@ const addNote = () => {
   newNote.value = ''
   errMsg.value = ''
 }
+
+const removeNote = (note) => {
+  notes.value.splice(notes.value.indexOf(note), 1)
+}
 </script>
 
 <template>
@@ -81,7 +85,7 @@ const addNote = () => {
         </button>
       </header>
 
-      <div class="flex flex-wrap justify-between gap-y-5">
+      <div class="flex flex-wrap gap-5">
         <div
           v-for="note in notes"
           :key="note.id"
@@ -101,6 +105,7 @@ const addNote = () => {
               class="ri-delete-bin-6-line text-lg hover:text-red-700"
               aria-label="Delete note"
               title="Delete note"
+              @click="removeNote(note)"
             ></i>
           </div>
         </div>
