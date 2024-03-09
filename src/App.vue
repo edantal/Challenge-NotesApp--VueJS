@@ -3,11 +3,16 @@ import { ref } from 'vue'
 
 const showModal = ref(false)
 const newNote = ref('')
+const errMsg = ref('')
 const notes = ref([])
 
 const noteBackgrounds = ['#fff740', '#feff9c', '#7afcff', '#ff65a3', '#ff7eb9']
 
 const addNote = () => {
+  if (newNote.value.length < 10) {
+    errMsg.value = 'Note must contain more than 10 chracters'
+    return
+  }
   notes.value.push({
     id: Math.floor(Math.random() * 1000000),
     text: newNote.value,
@@ -17,6 +22,7 @@ const addNote = () => {
 
   showModal.value = false
   newNote.value = ''
+  errMsg.value = ''
 }
 </script>
 
@@ -30,14 +36,21 @@ const addNote = () => {
         class="w-[750px] bg-white rounded-[10px] p-[30px] relative flex flex-col"
       >
         <textarea
-          v-model="newNote"
           name="note"
           id="note"
           cols="30"
           rows="10"
           placeholder="Add your note here"
           class="min-w-[100%] max-w-[100%] border border-black rounded-[10px] outline-none p-[10px] placeholder:text-sm placeholder:italic"
+          v-model.trim="newNote"
         ></textarea>
+        <p
+          v-if="errMsg"
+          class="flex flex-row items-center text-xs text-red-700 px-2 mt-1 gap-x-1"
+        >
+          <i class="ri-error-warning-fill text-lg"></i>
+          Error: {{ errMsg }}
+        </p>
         <div class="flex flex-row items-center justify-between gap-x-5 mt-5">
           <button
             @click="addNote"
@@ -52,6 +65,7 @@ const addNote = () => {
         </div>
       </div>
     </div>
+
     <div class="container mx-auto">
       <header class="flex justify-between items-center">
         <h1 class="font-primary font-bold text-6xl mb-8">Notes App</h1>
@@ -67,7 +81,7 @@ const addNote = () => {
         </button>
       </header>
 
-      <div class="flex flex-wrap gap-5">
+      <div class="flex flex-wrap justify-between gap-y-5">
         <div
           v-for="note in notes"
           :key="note.id"
