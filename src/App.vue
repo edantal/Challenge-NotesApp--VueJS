@@ -1,22 +1,44 @@
+<script setup>
+import { ref } from 'vue'
+
+const showModal = ref(false)
+</script>
+
 <template>
   <main class="w-full h-full">
-    <div class="hidden">
-      <div class="modal">
+    <div
+      v-if="showModal"
+      class="absolute w-[100%] h-[100%] flex items-center justify-center bg-[rgba(0,0,0,.77)] z-10"
+    >
+      <div
+        class="w-[750px] bg-white rounded-[10px] p-[30px] relative flex flex-col"
+      >
+        <button
+          @click="showModal = false"
+          class="absolute -top-2 -right-2 w-[30px] h-[30px] bg-black rounded-full text-white text-xl -leading-0 cursor-pointer"
+        >
+          ×
+        </button>
         <textarea
           name="note"
           id="note"
           cols="30"
           rows="10"
           placeholder="Add your note here"
+          class="min-w-[100%] max-w-[100%] border border-[#000000] rounded-[10px] outline-none p-[10px] placeholder:text-sm placeholder:italic"
         ></textarea>
-        <button>Add Note</button>
-        <button class="close">Close</button>
+        <div class="flex flex-row items-center justify-center gap-x-5 mt-5">
+          <button class="btn bg-green-700 text-white hover:bg-green-950">
+            Add Note
+          </button>
+        </div>
       </div>
     </div>
     <div class="container">
       <header class="flex justify-between items-center">
         <h1 class="font-bold text-6xl mb-8">Notes</h1>
         <button
+          @click="showModal = true"
           class="w-[50px] h-[50px] border-none rounded-full cursor-pointer bg-[#666666] text-[#ffffff] text-3xl leading-5 tracking-normal"
         >
           +
@@ -47,48 +69,5 @@
   max-width: 1000px;
   padding: 10px;
   margin: 0 auto;
-}
-
-.overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(0, 0, 0, 0.77);
-  z-index: 10;
-}
-.modal {
-  width: 750px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  padding: 30px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-.modal textarea {
-  min-width: 100%;
-  max-width: 100%;
-  border: 1px solid #000000;
-  border-radius: 10px;
-  outline: none;
-  padding: 10px;
-}
-.modal button {
-  padding: 10px 20px;
-  margin-top: 15px;
-  font-size: 20px;
-  width: 100%;
-  background-color: green;
-  border-radius: 10px;
-  border: none;
-  color: #ffffff;
-  cursor: pointer;
-}
-.modal button.close {
-  margin-top: 7px;
-  background-color: red;
 }
 </style>
