@@ -13,12 +13,6 @@ const showModal = ref(false)
       <div
         class="w-[750px] bg-white rounded-[10px] p-[30px] relative flex flex-col"
       >
-        <button
-          @click="showModal = false"
-          class="absolute -top-2 -right-2 w-[30px] h-[30px] bg-black rounded-full text-white text-xl -leading-0 cursor-pointer"
-        >
-          ×
-        </button>
         <textarea
           name="note"
           id="note"
@@ -27,21 +21,27 @@ const showModal = ref(false)
           placeholder="Add your note here"
           class="min-w-[100%] max-w-[100%] border border-[#000000] rounded-[10px] outline-none p-[10px] placeholder:text-sm placeholder:italic"
         ></textarea>
-        <div class="flex flex-row items-center justify-center gap-x-5 mt-5">
+        <div class="flex flex-row items-center justify-between gap-x-5 mt-5">
           <button class="btn bg-green-700 text-white hover:bg-green-950">
             Add Note
           </button>
+          <i
+            @click="showModal = false"
+            class="ri-close-circle-fill text-black text-3xl cursor-pointer hover:text-red-700 transition-all duration-500 ease-out"
+          ></i>
         </div>
       </div>
     </div>
     <div class="container">
       <header class="flex justify-between items-center">
-        <h1 class="font-bold text-6xl mb-8">Notes</h1>
+        <h1 class="font-bold text-6xl mb-8">Notes App</h1>
         <button
           @click="showModal = true"
-          class="w-[50px] h-[50px] border-none rounded-full cursor-pointer bg-[#666666] text-[#ffffff] text-3xl leading-5 tracking-normal"
+          class="cursor-pointer transition-all duration-500 ease-out"
         >
-          +
+          <i
+            class="ri-add-circle-fill text-4xl text-gray-600 hover:text-sky-700"
+          ></i>
         </button>
       </header>
 
@@ -67,7 +67,7 @@ const showModal = ref(false)
 <style scoped>
 .container {
   max-width: 1000px;
-  padding: 10px;
+  padding: 20px 10px;
   margin: 0 auto;
 }
 </style>
