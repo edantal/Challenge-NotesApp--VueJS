@@ -1,9 +1,17 @@
 # NotesApp
 
-Challenge App developed with Vue 3 in Vite and TailwindCSS
+<div>
+  <div>
+    <img src="https://img.shields.io/badge/-Vue.js-black?style=for-the-badge&logoColor=white&logo=vuedotjs&color=42b883" alt="vue.js" />
+    <img src="https://img.shields.io/badge/-Vite-black?style=for-the-badge&logoColor=white&logo=vite&color=646CFF" alt="vite" />
+    <img src="https://img.shields.io/badge/-Tailwind_CSS-black?style=for-the-badge&logoColor=white&logo=tailwindcss&color=06B6D4" alt="tailwindcss" />
+  </div>
+  <h3>Challenge App developed with Vue 3 in Vite and TailwindCSS</h3>
+</div>
 
 ### Resources
 
+- [Vue.js](https://vuejs.org)
 - [Tailwind CSS](https://tailwindcss.com)
 - [Remix Icon](https://remixicon.com/)
 - [Google Fonts: Oswald](https://fonts.google.com/specimen/Oswald)
